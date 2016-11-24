@@ -1,2 +1,2 @@
 # ComiX
-Comix creating and reading
+Comix creating and reading implementet with Swift 3
