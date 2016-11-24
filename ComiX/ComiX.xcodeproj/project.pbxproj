@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E5DE6F99886CA596DD8C490 /* Pods_ComiX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DEE286E36D6759A5940778 /* Pods_ComiX.framework */; };
 		4EBAB0571DE788AD00F38B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB04F1DE788AD00F38B9C /* AppDelegate.swift */; };
 		4EBAB0581DE788AD00F38B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EBAB0501DE788AD00F38B9C /* LaunchScreen.storyboard */; };
 		4EBAB0591DE788AD00F38B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EBAB0521DE788AD00F38B9C /* Main.storyboard */; };
@@ -21,6 +22,9 @@
 		4EBAB0531DE788AD00F38B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EBAB0541DE788AD00F38B9C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EBAB0561DE788AD00F38B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		82584D96DC0390D8C29B243C /* Pods-ComiX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComiX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComiX/Pods-ComiX.debug.xcconfig"; sourceTree = "<group>"; };
+		95DEE286E36D6759A5940778 /* Pods_ComiX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComiX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE87E2E481B206418FE1CED3 /* Pods-ComiX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComiX.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComiX/Pods-ComiX.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E5DE6F99886CA596DD8C490 /* Pods_ComiX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +44,8 @@
 			children = (
 				4EBAB0381DE7875800F38B9C /* ComiX */,
 				4EBAB0371DE7875800F38B9C /* Products */,
+				4FF68730773D9E8A37F79884 /* Pods */,
+				AA6DE4B66DEA24AACD5715C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +109,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4FF68730773D9E8A37F79884 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82584D96DC0390D8C29B243C /* Pods-ComiX.debug.xcconfig */,
+				AE87E2E481B206418FE1CED3 /* Pods-ComiX.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA6DE4B66DEA24AACD5715C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95DEE286E36D6759A5940778 /* Pods_ComiX.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,9 +133,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EBAB0481DE7875800F38B9C /* Build configuration list for PBXNativeTarget "ComiX" */;
 			buildPhases = (
+				B5D7A2181C0B1E0F99507105 /* [CP] Check Pods Manifest.lock */,
 				4EBAB0321DE7875800F38B9C /* Sources */,
 				4EBAB0331DE7875800F38B9C /* Frameworks */,
 				4EBAB0341DE7875800F38B9C /* Resources */,
+				F8C5746B7F0B7FC1DBD9BDE7 /* [CP] Embed Pods Frameworks */,
+				D7B8A1B76091C346AB105954 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,6 +196,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B5D7A2181C0B1E0F99507105 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D7B8A1B76091C346AB105954 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ComiX/Pods-ComiX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8C5746B7F0B7FC1DBD9BDE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ComiX/Pods-ComiX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4EBAB0321DE7875800F38B9C /* Sources */ = {
@@ -296,6 +371,7 @@
 		};
 		4EBAB0491DE7875800F38B9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82584D96DC0390D8C29B243C /* Pods-ComiX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
@@ -309,6 +385,7 @@
 		};
 		4EBAB04A1DE7875800F38B9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE87E2E481B206418FE1CED3 /* Pods-ComiX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
@@ -339,6 +416,7 @@
 				4EBAB04A1DE7875800F38B9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
