@@ -13,6 +13,11 @@
 		4EBAB0591DE788AD00F38B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EBAB0521DE788AD00F38B9C /* Main.storyboard */; };
 		4EBAB05A1DE788AD00F38B9C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EBAB0541DE788AD00F38B9C /* Info.plist */; };
 		4EBAB05B1DE788AD00F38B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EBAB0561DE788AD00F38B9C /* Assets.xcassets */; };
+		4EBAB0631DE79D4300F38B9C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0611DE79D4300F38B9C /* StorageManager.swift */; };
+		4EBAB0641DE79D4300F38B9C /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0621DE79D4300F38B9C /* Tools.swift */; };
+		4EBAB0681DE7A25800F38B9C /* Comix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0651DE7A25800F38B9C /* Comix.swift */; };
+		4EBAB0691DE7A25800F38B9C /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0661DE7A25800F38B9C /* Page.swift */; };
+		4EBAB06A1DE7A25800F38B9C /* PageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0671DE7A25800F38B9C /* PageItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		4EBAB0531DE788AD00F38B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EBAB0541DE788AD00F38B9C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EBAB0561DE788AD00F38B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4EBAB0611DE79D4300F38B9C /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		4EBAB0621DE79D4300F38B9C /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		4EBAB0651DE7A25800F38B9C /* Comix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comix.swift; sourceTree = "<group>"; };
+		4EBAB0661DE7A25800F38B9C /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		4EBAB0671DE7A25800F38B9C /* PageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItem.swift; sourceTree = "<group>"; };
 		82584D96DC0390D8C29B243C /* Pods-ComiX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComiX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComiX/Pods-ComiX.debug.xcconfig"; sourceTree = "<group>"; };
 		95DEE286E36D6759A5940778 /* Pods_ComiX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComiX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE87E2E481B206418FE1CED3 /* Pods-ComiX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComiX.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComiX/Pods-ComiX.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +108,8 @@
 		4EBAB05F1DE78A3F00F38B9C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				4EBAB0611DE79D4300F38B9C /* StorageManager.swift */,
+				4EBAB0621DE79D4300F38B9C /* Tools.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -105,6 +117,9 @@
 		4EBAB0601DE78A3F00F38B9C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4EBAB0651DE7A25800F38B9C /* Comix.swift */,
+				4EBAB0661DE7A25800F38B9C /* Page.swift */,
+				4EBAB0671DE7A25800F38B9C /* PageItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,7 +265,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EBAB0641DE79D4300F38B9C /* Tools.swift in Sources */,
 				4EBAB0571DE788AD00F38B9C /* AppDelegate.swift in Sources */,
+				4EBAB0681DE7A25800F38B9C /* Comix.swift in Sources */,
+				4EBAB0631DE79D4300F38B9C /* StorageManager.swift in Sources */,
+				4EBAB0691DE7A25800F38B9C /* Page.swift in Sources */,
+				4EBAB06A1DE7A25800F38B9C /* PageItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
