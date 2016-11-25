@@ -18,7 +18,7 @@ class Storage{
     public let realm            : Realm
     public let documentsDirPath : String
     
-    public init() {
+    private init() {
         realm = try! Realm()
         documentsDirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         comixList = realm.objects(Comix.self)

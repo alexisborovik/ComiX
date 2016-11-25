@@ -6,7 +6,6 @@
 //  Copyright © 2016 Alexis. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
 
 class Page : Object {
