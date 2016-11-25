@@ -50,6 +50,16 @@ class Storage{
         return imageName
     }
     
+    public func dropImage(imageName : String) {
+        let photoURL = NSURL(fileURLWithPath: documentsDirPath).appendingPathComponent(imageName)
+        do {
+            try FileManager.default.removeItem(at: photoURL!)
+        }
+        catch {
+            print("error while delete image")
+        }
+    }
+    
     public func loadImage(imageName: String) -> UIImage? {
         var image = UIImage()
         let photoURL = NSURL(fileURLWithPath: documentsDirPath).appendingPathComponent(imageName)

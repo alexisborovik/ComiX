@@ -21,8 +21,6 @@ class PageListsViewController: UIViewController, UICollectionViewDelegateFlowLay
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         addMainCollectionView()
         addSegmentedControl()
         addPagePatternsMenu()
@@ -34,31 +32,30 @@ class PageListsViewController: UIViewController, UICollectionViewDelegateFlowLay
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // if collectionView == pagesCollectionView {
+        if collectionView == pagesCollectionView {
+            return Storage.common.comixList.count
+        }
         return Storage.common.comixList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == pagesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PageListCollectionViewCell.cellIdentifier, for: indexPath) as! PageListCollectionViewCell
-       
-            cell.backgroundColor = UIColor.orange
+            cell.pageIndex = indexPath.item
+            cell.backgroundColor = UIManager.cellColor
             return cell
         }
-        else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PagePatternsCollectionViewCell.cellIdentifier, for: indexPath) as! PagePatternsCollectionViewCell
-            return cell
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PagePatternsCollectionViewCell.cellIdentifier, for: indexPath) as! PagePatternsCollectionViewCell
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == pagesCollectionView {
             if isEditingMode {
                 selectedPage = indexPath.item
-                pagesCollectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.green
+                pagesCollectionView.cellForItem(at: indexPath)?.backgroundColor = UIManager.selectedCellColor
             }
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -70,29 +67,32 @@ class PageListsViewController: UIViewController, UICollectionViewDelegateFlowLay
     }
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        //change realm dbs
         print("moove")
     }
-    
+}
+
+fileprivate extension PageListsViewController{
     func deselect(selected: Int){
-        pagesCollectionView.cellForItem(at: IndexPath(item: selected, section: 0))?.backgroundColor = UIColor.orange
+        pagesCollectionView.cellForItem(at: IndexPath(item: selected, section: 0))?.backgroundColor = UIManager.cellColor
     }
     
-    func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
+    @objc func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
         if isEditingMode {
-        switch(gesture.state) {
-            
-        case UIGestureRecognizerState.began:
-            guard let selectedIndexPath = self.pagesCollectionView.indexPathForItem(at: gesture.location(in: self.pagesCollectionView)) else {
-                break
+            switch(gesture.state) {
+                
+            case UIGestureRecognizerState.began:
+                guard let selectedIndexPath = self.pagesCollectionView.indexPathForItem(at: gesture.location(in: self.pagesCollectionView)) else {
+                    break
+                }
+                pagesCollectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+            case UIGestureRecognizerState.changed:
+                pagesCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+            case UIGestureRecognizerState.ended:
+                pagesCollectionView.endInteractiveMovement()
+            default:
+                pagesCollectionView.cancelInteractiveMovement()
             }
-            pagesCollectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
-        case UIGestureRecognizerState.changed:
-            pagesCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
-        case UIGestureRecognizerState.ended:
-            pagesCollectionView.endInteractiveMovement()
-        default:
-            pagesCollectionView.cancelInteractiveMovement()
-        }
         }
     }
     
@@ -104,7 +104,7 @@ class PageListsViewController: UIViewController, UICollectionViewDelegateFlowLay
         pagesCollectionView.dataSource = self
         pagesCollectionView.delegate = self
         pagesCollectionView.register(PageListCollectionViewCell.self, forCellWithReuseIdentifier: PageListCollectionViewCell.cellIdentifier)
-        pagesCollectionView.backgroundColor = .white
+        pagesCollectionView.backgroundColor = UIManager.collectionViewColor
         self.view.addSubview(pagesCollectionView)
         addLongPressGetsure()
     }
@@ -113,7 +113,7 @@ class PageListsViewController: UIViewController, UICollectionViewDelegateFlowLay
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongGesture(_:)))
         pagesCollectionView.addGestureRecognizer(longPressGesture)
     }
-   
+    
     func addSegmentedControl(){
         segmentedControl = UISegmentedControl(items: ["Read", "Edit"])
         segmentedControl.selectedSegmentIndex = 0
@@ -121,7 +121,7 @@ class PageListsViewController: UIViewController, UICollectionViewDelegateFlowLay
         self.navigationItem.titleView = segmentedControl
     }
     
-    func switchMode(_ sender:UISegmentedControl!){
+    @objc func switchMode(_ sender:UISegmentedControl!){
         isEditingMode = !isEditingMode
         self.navigationController?.setToolbarHidden(!(self.navigationController?.isToolbarHidden)!, animated: true)
         if !isEditingMode {

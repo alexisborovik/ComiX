@@ -15,6 +15,7 @@ class ComixListViewController: UIViewController, UICollectionViewDelegateFlowLay
     
     var isEditingMode       = false
     var isToolBarHidden     = true
+    var selectedComicsIndex = -1
     
     
     override func viewDidLoad() {
@@ -38,6 +39,19 @@ class ComixListViewController: UIViewController, UICollectionViewDelegateFlowLay
         cell.cover.image = Storage.common.loadImage(imageName: Storage.common.comixList[indexPath.item].cover)
         cell.backgroundColor = UIManager.cellColor
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isEditingMode {
+            selectedComicsIndex = indexPath.item
+            collectionView.cellForItem(at: indexPath)?.backgroundColor = UIManager.selectedCellColor
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if isEditingMode {
+            deselectCell(selected: indexPath.item)
+        }
     }
  }
 
@@ -70,7 +84,8 @@ fileprivate extension ComixListViewController {
         isEditingMode = !isEditingMode
         self.navigationController?.setToolbarHidden(!(self.navigationController?.isToolbarHidden)!, animated: true)
         if !isEditingMode {
-            print("editing mode off")
+            deselectCell(selected: selectedComicsIndex)
+            selectedComicsIndex = -1
         }
     }
     
@@ -96,18 +111,22 @@ fileprivate extension ComixListViewController {
 
     @objc func addNewComics(){
         if isEditingMode {
-            print("addnewcomics")
+            print("addcomics")
         }
     }
     
     @objc func editComics(){
         if isEditingMode {
-            print("editnewcomics")
+            print("editcomics")
         }
     }
     @objc func removeComics(){
         if isEditingMode {
-            print("removenewcomics")
+            print("removecomics")
         }
+    }
+    
+    func deselectCell(selected: Int){
+        collectionView.cellForItem(at: IndexPath(item: selected, section: 0))?.backgroundColor = UIManager.cellColor
     }
 }

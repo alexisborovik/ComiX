@@ -9,24 +9,23 @@
 import UIKit
 import RealmSwift
 
-
 class ComixViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var comixName    : UITextField!
     var cover        : UIImageView!
     var getImageButt : UIButton!
-    let imagePicker  = UIImagePickerController()
+    var imagePicker  : UIImagePickerController!
+    var comixToEdit  = -1
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        imagePicker.delegate = self
-        view.backgroundColor = UIColor.darkGray
+        initImagePicker()
         addTextField()
         addGetImageButton()
         addCovetIV()
         addSaveButton()
+        initFields()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -86,6 +85,11 @@ fileprivate extension ComixViewController {
         cover.backgroundColor = UIColor.yellow
     }
     
+    func initImagePicker(){
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+    }
+    
     func addSaveButton(){
         let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ComixViewController.saveComix))
         self.navigationItem.rightBarButtonItem = saveButton
@@ -97,9 +101,24 @@ fileprivate extension ComixViewController {
     }
     
     @objc func saveComix() {
-        let newComix = Comix()
-        newComix.title = comixName.text!
-        newComix.cover = Storage.common.saveImage(image: cover.image!)
-        Storage.common.addNewComix(comix: newComix)
+        if comixToEdit < 0 {
+            let newComix = Comix()
+            newComix.title = comixName.text!
+            newComix.cover = Storage.common.saveImage(image: cover.image!)
+            Storage.common.addNewComix(comix: newComix)
+            return
+        }
+        try! Storage.common.realm.write {
+            Storage.common.comixList[comixToEdit].title = comixName.text!
+            Storage.common.dropImage(imageName: Storage.common.comixList[comixToEdit].cover)
+            Storage.common.comixList[comixToEdit].cover = Storage.common.saveImage(image: cover.image!)
+        }
+    }
+    
+    func initFields() {
+        if comixToEdit >= 0 {
+            comixName.text = Storage.common.comixList[comixToEdit].title
+            cover.image = Storage.common.loadImage(imageName: Storage.common.comixList[comixToEdit].cover)
+        }
     }
 }
