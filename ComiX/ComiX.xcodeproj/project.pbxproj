@@ -57,6 +57,8 @@
 		4EBAB0B71DE89C9000F38B9C /* PageListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0B51DE89C9000F38B9C /* PageListCollectionViewCell.swift */; };
 		4EBAB0B81DE89C9000F38B9C /* PageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0B61DE89C9000F38B9C /* PageListViewController.swift */; };
 		4EBAB0BA1DE89E3C00F38B9C /* PagePatternsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0B91DE89E3C00F38B9C /* PagePatternsCollectionViewCell.swift */; };
+		4EBAB0BD1DE8A3D000F38B9C /* PageReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0BB1DE8A3D000F38B9C /* PageReadViewController.swift */; };
+		4EBAB0BE1DE8A3D000F38B9C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAB0BC1DE8A3D000F38B9C /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,8 @@
 		4EBAB0B51DE89C9000F38B9C /* PageListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageListCollectionViewCell.swift; sourceTree = "<group>"; };
 		4EBAB0B61DE89C9000F38B9C /* PageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageListViewController.swift; sourceTree = "<group>"; };
 		4EBAB0B91DE89E3C00F38B9C /* PagePatternsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagePatternsCollectionViewCell.swift; sourceTree = "<group>"; };
+		4EBAB0BB1DE8A3D000F38B9C /* PageReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageReadViewController.swift; sourceTree = "<group>"; };
+		4EBAB0BC1DE8A3D000F38B9C /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		82584D96DC0390D8C29B243C /* Pods-ComiX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComiX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComiX/Pods-ComiX.debug.xcconfig"; sourceTree = "<group>"; };
 		95DEE286E36D6759A5940778 /* Pods_ComiX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComiX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE87E2E481B206418FE1CED3 /* Pods-ComiX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComiX.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComiX/Pods-ComiX.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 				4EBAB0B51DE89C9000F38B9C /* PageListCollectionViewCell.swift */,
 				4EBAB0B61DE89C9000F38B9C /* PageListViewController.swift */,
 				4EBAB0B91DE89E3C00F38B9C /* PagePatternsCollectionViewCell.swift */,
+				4EBAB0BB1DE8A3D000F38B9C /* PageReadViewController.swift */,
+				4EBAB0BC1DE8A3D000F38B9C /* PageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -422,6 +428,8 @@
 				4EBAB09D1DE7ABC600F38B9C /* ConstraintLayoutSupportDSL.swift in Sources */,
 				4EBAB0A81DE7ABC600F38B9C /* ConstraintRelation.swift in Sources */,
 				4EBAB0B81DE89C9000F38B9C /* PageListViewController.swift in Sources */,
+				4EBAB0BE1DE8A3D000F38B9C /* PageViewController.swift in Sources */,
+				4EBAB0BD1DE8A3D000F38B9C /* PageReadViewController.swift in Sources */,
 				4EBAB0A91DE7ABC600F38B9C /* ConstraintView+Extensions.swift in Sources */,
 				4EBAB0B71DE89C9000F38B9C /* PageListCollectionViewCell.swift in Sources */,
 				4EBAB09E1DE7ABC600F38B9C /* ConstraintMaker.swift in Sources */,
